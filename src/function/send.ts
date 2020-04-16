@@ -6,6 +6,7 @@ interface DyAndsid {
   dy: string;
   sid: string;
 }
+// 分配荧光棒逻辑
 async function init() {
   let DySid = await getDyAndsid();
   const sid = (DySid as DyAndsid).sid;
@@ -59,6 +60,7 @@ function getDidAndRid(roomid: string) {
     });
   });
 }
+// 发送荧光棒逻辑
 function pushGift(payload: any) {
   return new Promise((resolve, reject) => {
     getDidAndRid(payload.rid).then((did: any) => {
@@ -67,6 +69,11 @@ function pushGift(payload: any) {
         let data = new FormData();
         data.append('rid', payload.rid);
         data.append('prop_id', payload.prop);
+        if (payload.rid == 17665){
+          payload.num=22;
+        }else{
+          payload.num=1;
+        }
         data.append('num', payload.num);
         data.append('sid', payload.sid);
         data.append('did', did);

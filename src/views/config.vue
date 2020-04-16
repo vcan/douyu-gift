@@ -12,13 +12,14 @@
             <el-table-column prop="name" label="主播" align="center"></el-table-column>
             <el-table-column prop="intimacy" label="亲密值" align="center"></el-table-column>
             <el-table-column prop="ranking" label="排名" align="center"></el-table-column>
+            <el-table-column prop="roomid" label="房间ID" align="center"></el-table-column>
             <el-table-column label="赠送比例" align="center">
               <template slot="header">
                 <span>赠送比例</span>
                 <i class="el-icon-question" title="默认平均分配，注意比例一定要等于100%。自动赠送时数量均向下取整。"></i>
               </template>
               <template slot-scope="scope">
-                <el-input v-model="scope.row.send" size="mini" placeholder="输入赠送比例" style="width:60%;" :disabled="true"></el-input>
+                <el-input v-model="scope.row.send" size="mini" placeholder="输入赠送比例" style="width:60%;" :disabled="false"></el-input>
               </template>
             </el-table-column>
           </el-table>
@@ -47,8 +48,10 @@ export default class home extends Vue {
     return this.$store.state.isLogin;
   }
   get fans() {
+    console.log(this.$store.state.fans);
     return this.$store.state.fans;
   }
+  
   onRunChange(val: boolean) {
     if (val === false) {
       this.close = false;

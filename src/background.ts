@@ -7,12 +7,20 @@ require('electron-referer')('https://www.douyu.com/');
 const path = require('path');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 let Datastore = require('nedb');
-let paths = process.execPath.split('\\');
+let paths = process.execPath.split('/');
 paths.pop();
 let db = new Datastore({
-  filename: path.join(paths.join('\\'), '/config.db'),
+  filename: path.join(paths.join('/'), '/config.db'),
   autoload: true
 });
+
+// const {apps} = require('electron')
+console.log(app.getAppPath())
+
+// console.log("log信息");
+console.log(path.join(paths.join('\\'), 'config.db'));
+console.log(db);
+
 (global as any).db = db;
 let win: BrowserWindow | null;
 // Scheme must be registered before the app is ready
@@ -20,9 +28,11 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 
 function createWindow() {
   electron.Menu.setApplicationMenu(null);
+  
+  // 窗口大小设置
   win = new BrowserWindow({
-    width: 800,
-    height: 400,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false

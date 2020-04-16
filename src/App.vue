@@ -87,6 +87,7 @@ body {
   box-sizing: border-box;
 }
 #app {
-  height: 100vh;
+  height: 400vh;
+  height: 800vh;
 }
 </style>

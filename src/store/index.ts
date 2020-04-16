@@ -169,7 +169,14 @@ export default new Vuex.Store({
               arr.push(obj);
             });
             arr.forEach((ele: any) => {
-              ele.send = Math.floor(100 / arr.length) + '%';
+              //如果是易老师直播间分配100%
+              if (ele.roomid == 17665){
+                ele.send = '85%'
+              }else{
+                ele.send = '5%'
+              }
+              //荧光棒自动分配逻辑
+              // ele.send = Math.floor(100 / arr.length) + '%';
             });
             state.loading = false;
             commit('fans', arr);

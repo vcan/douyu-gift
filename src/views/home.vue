@@ -20,6 +20,7 @@ import user from '../components/user.vue';
 })
 export default class home extends Vue {
   get isLogin() {
+    
     return this.$store.state.isLogin;
   }
 }
