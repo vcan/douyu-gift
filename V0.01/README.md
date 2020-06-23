@@ -14,3 +14,21 @@ release下载软件安装，登陆账号，第一次启动可能不会开始赠�
 
 ## 未来
 应该会使用TS重构，前提是我得先学TS QAQ···
+
+
+说明
+使用 Vue + ElementUI + TypeScript 驱动，仅用于学习用途。这是第二版，第一版使用了 jQuery + Electron； 第二版从代码上更清晰，但是功能不变，仍然只是自动赠送荧光棒。
+
+当前releases只构建了Windows X86_64版本，如果需要Linux或者Mac版本请在vue.config.js配置，相关配置文档
+
+克隆
+https://github.com/Curtion/douyu-gift.git
+
+安装
+yarn install
+
+开发
+yarn electron:serve
+
+构建
+yarn electron:build

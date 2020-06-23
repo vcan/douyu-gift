@@ -69,8 +69,9 @@ function pushGift(payload: any) {
         let data = new FormData();
         data.append('rid', payload.rid);
         data.append('prop_id', payload.prop);
+        //现在9级了30个荧光棒，默认易老师直播间给27个
         if (payload.rid == 17665){
-          payload.num=22;
+          payload.num=27;
         }else{
           payload.num=1;
         }
